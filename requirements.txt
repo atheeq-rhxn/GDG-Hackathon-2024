@@ -1,0 +1,12 @@
+# Core Web Framework
+flask==2.3.2
+
+# Data Science and Machine Learning Libraries
+pandas==1.5.3
+numpy==1.24.3
+scikit-learn==1.2.2
+joblib==1.2.0
+
+# Visualization Libraries
+matplotlib==3.7.1
+seaborn==0.12.2
