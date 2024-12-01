@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Build with AI Hackathon - Team Aivil</title>
+    <link href="https://cdn.jsdelivr.net/npm/daisyui@4.4.19/dist/full.min.css" rel="stylesheet"/>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="min-h-screen bg-gradient-to-b from-base-200 to-base-300">
+    <!-- Header -->
+    <header class="fixed top-0 left-0 right-0 z-10 mt-4">
+    <nav class="navbar py-3 px-8 border border-base-300 rounded-lg max-w-7xl mx-auto shadow-lg">
+        <div class="navbar-start">
+            <a href="{{ url_for('index') }}" class="btn btn-ghost text-xl hover:text-primary transition-colors">Home</a>
+        </div>
+        <div class="navbar-end">
+            <a href="https://gdg.community.dev/events/details/google-gdg-on-campus-ramco-institute-of-technology-rajapalayam-india-presents-build-with-ai/" 
+               target="_blank" 
+               class="btn btn-primary text-xl hover:scale-105 transition-transform">
+                GDG RIT
+            </a>
+        </div>
+    </nav>
+    </header>
+
+    <div class="h-20"></div> <!-- Spacer to prevent content from starting under navbar -->
+    <div class="relative">
+        <div class="absolute inset-0 bg-gradient-to-b from-base-200/50 to-transparent h-32 pointer-events-none backdrop-blur-sm"></div>
+        <!-- Main Content -->
+        <main class="pt-24">
+            <!-- Hero Section -->
+            <section class="hero min-h-[80vh] text-center relative overflow-hidden">
+                <div class="hero-content z-10">
+                    <div class="max-w-2xl">
+                        <div class="mb-12 space-y-4">
+                            <div class="badge badge-primary badge-lg font-semibold mb-4 p-4">GDG on Campus presents</div>
+                            <h1 class="text-6xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-primary to-secondary">
+                                Build with AI
+                            </h1>
+                            <p class="text-2xl mt-4 text-base-content/80">Hackathon 2024</p>
+                        </div>
+                        <div class="divider"></div>
+                        <div class="mt-12">
+                            <h3 class="text-4xl font-bold mb-6">Team Aivil</h3>
+                            <p class="text-xl text-base-content/70 max-w-xl mx-auto leading-relaxed">
+                                Innovating at the intersection of artificial intelligence and real-world solutions. 
+                                Join us as we build the future of intelligent products.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <!-- Decorative Background Elements -->
+                <div class="absolute top-0 left-0 w-full h-full opacity-10">
+                    <div class="absolute top-20 left-20 w-64 h-64 bg-primary rounded-full filter blur-3xl"></div>
+                    <div class="absolute bottom-20 right-20 w-64 h-64 bg-secondary rounded-full filter blur-3xl"></div>
+                </div>
+            </section>
+
+            <!-- Card Section -->
+        <!-- Card Section -->
+<section class="py-16 px-4 relative">
+    <div class="max-w-lg mx-auto">
+        <article class="card bg-base-100 shadow-xl hover:shadow-2xl transition-shadow duration-300 border border-base-300">
+            <div class="card-body">
+                <h2 class="card-title text-2xl font-bold flex items-center gap-2">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-primary" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2"/>
+                    </svg>
+                    Product Prediction
+                </h2>
+                <div class="py-6">
+                    <h3 class="font-semibold text-lg mb-2">Our Solution:</h3>
+                    <p class="text-base-content/80 leading-relaxed">
+                        Using advanced machine learning algorithms, we predict product preferences based on 
+                        demographic data. Our AI model analyzes age and gender patterns to suggest personalized 
+                        product recommendations.
+                    </p>
+                </div>
+                <div class="card-actions justify-end space-x-2">
+                    <a href="{{ url_for('predict') }}" 
+                       class="btn btn-primary btn-lg gap-2 hover:scale-105 transition-transform">
+                        Try it Now
+                        <svg xmlns="http://www.w3.org/2000/svg" 
+                             class="h-6 w-6" 
+                             fill="none" 
+                             viewBox="0 0 24 24" 
+                             stroke="currentColor">
+                            <path stroke-linecap="round" 
+                                  stroke-linejoin="round" 
+                                  stroke-width="2" 
+                                  d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3"/>
+                        </svg>
+                    </a>
+                </div>
+            </div>
+        </article>
+    </div>
+</section>
+        </main>
+    </div>
+</body>
+</html>

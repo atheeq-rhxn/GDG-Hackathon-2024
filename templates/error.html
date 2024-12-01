@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Prediction Result - Team Aivil</title>
+    <!-- Stylesheets -->
+    <link 
+        href="https://cdn.jsdelivr.net/npm/daisyui@4.4.19/dist/full.min.css" 
+        rel="stylesheet" 
+    />
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-base-200">
+
+    <!-- Header -->
+    <header class="fixed top-0 left-0 right-0 z-10 mt-4">
+        <nav class="navbar py-2 px-8 border border-gray-300 rounded-lg shadow-md max-w-7xl mx-auto">
+            <div class="navbar-start">
+                <a href="/" class="btn btn-ghost text-xl" aria-label="Home">Home</a>
+            </div>
+            <div class="navbar-end">
+                <a 
+                    href="https://gdg.community.dev/events/details/google-gdg-on-campus-ramco-institute-of-technology-rajapalayam-india-presents-build-with-ai/" 
+                    target="_blank" 
+                    class="btn text-xl" 
+                    aria-label="GDG RIT Event"
+                >
+                    GDG RIT
+                </a>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Main Content -->
+    <main class="min-h-screen flex items-center justify-center p-4 pt-24">
+        <section class="card lg:w-[28rem] bg-base-100 shadow-xl border border-gray-300">
+            <div class="card-body text-center">
+                <h2 class="card-title text-2xl mb-4">Product Recommendation</h2>
+                
+                <div class="w-full space-y-4 mb-6">
+                    <!-- Customer Info -->
+                    <article class="bg-base-200 p-4 rounded-lg border border-gray-200">
+                        <header class="flex items-center justify-center gap-2 mb-2">
+                            <svg 
+                                xmlns="http://www.w3.org/2000/svg" 
+                                class="h-5 w-5 opacity-70" 
+                                fill="none" 
+                                viewBox="0 0 24 24" 
+                                stroke="currentColor"
+                            >
+                                <path 
+                                    stroke-linecap="round" 
+                                    stroke-linejoin="round" 
+                                    stroke-width="2" 
+                                    d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"
+                                />
+                            </svg>
+                            <p class="text-sm text-base-content/70">Customer Profile</p>
+                        </header>
+                        <p class="font-medium">Age: {{ age }}</p>
+                        <p class="font-medium">Gender: {{ gender|title }}</p>
+                    </article>
+                    
+                    <!-- Main Prediction -->
+                    <article class="alert shadow-lg bg-primary text-primary-content">
+                        <header class="flex items-center">
+                            <svg 
+                                xmlns="http://www.w3.org/2000/svg" 
+                                class="stroke-current flex-shrink-0 h-6 w-6" 
+                                fill="none" 
+                                viewBox="0 0 24 24"
+                            >
+                                <path 
+                                    stroke-linecap="round" 
+                                    stroke-linejoin="round" 
+                                    stroke-width="2" 
+                                    d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"
+                                />
+                            </svg>
+                            <div class="ml-3">
+                                <span class="text-sm">Top Recommendation</span>
+                                <span class="font-bold text-lg block">{{ prediction }}</span>
+                            </div>
+                        </header>
+                    </article>
+
+                    <!-- Prediction Probabilities -->
+                    <article class="bg-base-200 p-4 rounded-lg border border-gray-200">
+                        <header class="flex items-center justify-center gap-2 mb-3">
+                            <svg 
+                                xmlns="http://www.w3.org/2000/svg" 
+                                class="h-5 w-5 opacity-70" 
+                                fill="none" 
+                                viewBox="0 0 24 24" 
+                                stroke="currentColor"
+                            >
+                                <path 
+                                    stroke-linecap="round" 
+                                    stroke-linejoin="round" 
+                                    stroke-width="2" 
+                                    d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"
+                                />
+                            </svg>
+                            <p class="text-sm text-base-content/70">Category Probabilities</p>
+                        </header>
+                        {% for category, prob in probabilities %}
+                        <div class="mb-2">
+                            <div class="flex justify-between text-sm mb-1">
+                                <span>{{ category }}</span>
+                                <span class="font-medium">{{ "%.1f"|format(prob*100) }}%</span>
+                            </div>
+                            <progress 
+                                class="progress progress-primary w-full" 
+                                value="{{ prob*100 }}" 
+                                max="100"
+                            ></progress>
+                        </div>
+                        {% endfor %}
+                    </article>
+                </div>
+                
+                <!-- Actions -->
+                <footer class="card-actions flex flex-col gap-2">
+                    <a href="/predict" class="btn btn-primary btn-wide">
+                        Make Another Prediction
+                        <svg 
+                            xmlns="http://www.w3.org/2000/svg" 
+                            class="h-5 w-5 ml-2" 
+                            fill="none" 
+                            viewBox="0 0 24 24" 
+                            stroke="currentColor"
+                        >
+                            <path 
+                                stroke-linecap="round" 
+                                stroke-linejoin="round" 
+                                stroke-width="2" 
+                                d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15"
+                            />
+                        </svg>
+                    </a>
+                    <a href="/" class="btn btn-ghost btn-sm">Return Home</a>
+                </footer>
+            </div>
+        </section>
+    </main>
+
+    <!-- Scripts -->
+    <script>
+        // Animate progress bars on load
+        document.addEventListener('DOMContentLoaded', () => {
+            document.querySelectorAll('progress').forEach(bar => {
+                const value = bar.value;
+                bar.value = 0;
+                setTimeout(() => (bar.value = value), 200);
+            });
+        });
+    </script>
+</body>
+</html>
