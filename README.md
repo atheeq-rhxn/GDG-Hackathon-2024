@@ -38,7 +38,7 @@ Developed during the **GDG Hackathon 2024** at RIT, Rajapalayam, this project in
 1. **Clone the Repository**:
    ```
    git clone https://github.com/atheeq-rhxn/GDG-Hackathon-2024
-   cd project
+   cd GDG-Hackathon-2024
    ```
 
 2. **Install Dependencies**:
